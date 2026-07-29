@@ -1,14 +1,12 @@
-# Reelwork Portfolio
+# Lucy Rose Content — Portfolio Site
 
-A simple, modern multi-page static website for a UGC (user-generated content) video studio. Plain HTML/CSS/JS — no build step, no framework.
+A simple, modern static website for Lucy Rose Content, a UGC (user-generated content) creator. Plain HTML/CSS/JS — no build step, no framework.
 
 ## Pages
 
 - `index.html` — Home
-- `pricing.html` — Pricing packages & add-ons
 - `about.html` — About / process / values
-- `faq.html` — FAQ accordion
-- `contact.html` — Booking / contact form
+- `contact.html` — Enquiry / booking form
 
 ## Local development
 
@@ -22,7 +20,7 @@ Then open `http://localhost:8080`.
 
 ## Contact form
 
-The booking form on `contact.html` currently runs in **demo mode** — submissions are validated client-side but not sent anywhere. To receive real submissions, sign up for a free form backend such as [Formspree](https://formspree.io) and set the form's `action` attribute (in `contact.html`) to the endpoint it gives you. No other code changes are required.
+The enquiry form on `contact.html` currently runs in **demo mode** — submissions are validated client-side but not sent anywhere. To receive real submissions, sign up for a free form backend such as [Formspree](https://formspree.io) and set the form's `action` attribute (in `contact.html`) to the endpoint it gives you. No other code changes are required.
 
 ## Deployment
 
