@@ -77,47 +77,36 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      var action = form.getAttribute('action') || '';
-      var isLiveEndpoint = /^https:\/\//.test(action);
+      var name = form.name.value.trim();
+      var email = form.email.value.trim();
+      var brand = form.brand.value.trim();
+      var website = form.website.value.trim();
+      var projectType = form.project_type.value;
+      var budget = form.budget.value;
+      var message = form.message.value.trim();
 
-      if (!isLiveEndpoint) {
-        // No real form backend wired up yet — show a local confirmation only.
-        if (statusEl) {
-          statusEl.textContent = "Thanks! (Demo mode: this form isn't connected to an email service yet — see the note below.)";
-          statusEl.className = 'form-status success';
-        }
-        form.reset();
-        return;
+      var bodyLines = [
+        'Name: ' + name,
+        'Email: ' + email,
+        'Brand/company: ' + brand,
+        'Website/social: ' + (website || 'N/A'),
+        'Project type: ' + projectType,
+        'Budget: ' + (budget || 'N/A'),
+        '',
+        'Message:',
+        message
+      ];
+
+      var subject = 'New enquiry from ' + name + (brand ? ' (' + brand + ')' : '');
+      var mailtoLink = 'mailto:lucyrose224@icloud.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      if (statusEl) {
+        statusEl.textContent = "Thanks! Opening your email app so you can send this enquiry through — I'll reply within 1–2 business days.";
+        statusEl.className = 'form-status success';
       }
 
-      var submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) submitBtn.disabled = true;
-
-      fetch(action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
-      })
-        .then(function (response) {
-          if (response.ok) {
-            if (statusEl) {
-              statusEl.textContent = "Thanks! Your request has been sent. We'll reply within 1–2 business days.";
-              statusEl.className = 'form-status success';
-            }
-            form.reset();
-          } else {
-            throw new Error('Submission failed');
-          }
-        })
-        .catch(function () {
-          if (statusEl) {
-            statusEl.textContent = 'Something went wrong sending your request. Please email us directly instead.';
-            statusEl.className = 'form-status error';
-          }
-        })
-        .finally(function () {
-          if (submitBtn) submitBtn.disabled = false;
-        });
+      window.location.href = mailtoLink;
+      form.reset();
     });
   }
 });
