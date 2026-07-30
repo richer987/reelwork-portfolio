@@ -333,6 +333,52 @@ p { margin: 0 0 16px; color: var(--muted); }
   display: flex;
   justify-content: center;
 }
+.photo-stack {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+  padding-right: 30px;
+}
+.photo-stack-main {
+  width: 78%;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(160deg, var(--taupe-300), var(--taupe-900));
+}
+.photo-stack-secondary {
+  position: absolute;
+  width: 46%;
+  aspect-ratio: 4 / 5;
+  bottom: 0;
+  right: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 6px solid var(--white);
+  background: linear-gradient(160deg, var(--taupe-500), var(--ink-900));
+  transform: rotate(3deg);
+}
+.photo-stack-main img,
+.photo-stack-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.photo-stack-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.4rem;
+  color: rgba(255, 255, 255, 0.85);
+}
 .arch-photo {
   width: 100%;
   max-width: 380px;
@@ -849,6 +895,21 @@ textarea { resize: vertical; min-height: 120px; }
   gap: 40px;
 }
 @media (max-width: 860px) { .contact-layout { grid-template-columns: 1fr; } }
+.contact-photo {
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 3 / 2;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 28px;
+}
+.contact-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .contact-info-item {
   display: flex;
   gap: 14px;
