@@ -266,6 +266,7 @@ p { margin: 0 0 16px; color: var(--muted); }
   color: var(--taupe-700);
   border-bottom-color: var(--taupe-700);
 }
+.nav-mobile-cta { display: none; }
 .nav-cta { display: flex; align-items: center; gap: 18px; }
 .nav-toggle {
   display: none;
@@ -302,6 +303,17 @@ p { margin: 0 0 16px; color: var(--muted); }
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; }
   .nav-cta .btn-primary.header-only { display: none; }
+  .nav-links a.nav-mobile-cta {
+    display: inline-flex;
+    margin-top: 6px;
+    padding: 13px 26px;
+    border-bottom: none;
+    color: white;
+  }
+  .nav-links a.nav-mobile-cta:hover {
+    border-bottom: none;
+    text-decoration: none;
+  }
 }
 
 /* Hero */
