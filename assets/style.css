@@ -695,6 +695,14 @@ p { margin: 0 0 16px; color: var(--muted); }
   border-radius: 3px;
   z-index: 3;
 }
+.phone-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 .video-label {
   position: relative;
   z-index: 1;
