@@ -10,6 +10,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Phone mockup videos — only start on explicit play-button click
+  document.querySelectorAll('.phone-video').forEach(function (video) {
+    var screen = video.closest('.phone-screen');
+    var playBtn = screen ? screen.querySelector('.play-dot') : null;
+    if (!playBtn) return;
+    playBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      video.controls = true;
+      video.play();
+      playBtn.style.display = 'none';
+    });
+  });
+
   // FAQ accordion
   function setFaqState(item, open) {
     var answer = item.querySelector('.faq-answer');
