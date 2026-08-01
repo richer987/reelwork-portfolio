@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
       video.play();
       playBtn.style.display = 'none';
     });
+    // iOS Safari ignores controlsList and can still open its native fullscreen
+    // player — bounce straight back out so playback stays inside the mockup.
+    video.addEventListener('webkitbeginfullscreen', function () {
+      video.webkitExitFullscreen();
+    });
   });
 
   // FAQ accordion
