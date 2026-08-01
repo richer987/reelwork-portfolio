@@ -726,6 +726,11 @@ p { margin: 0 0 16px; color: var(--muted); }
   width: 72px;
   accent-color: white;
   cursor: pointer;
+  outline: none;
+}
+.video-volume:focus,
+.video-volume:focus-visible {
+  outline: none;
 }
 .phone-video {
   position: absolute;
