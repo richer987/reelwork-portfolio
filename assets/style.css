@@ -697,11 +697,12 @@ p { margin: 0 0 16px; color: var(--muted); }
 }
 .video-controls {
   position: absolute;
-  top: 14px;
+  bottom: 14px;
   left: 14px;
   right: 14px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .video-btn {
   width: 34px;
@@ -716,9 +717,15 @@ p { margin: 0 0 16px; color: var(--muted); }
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  flex-shrink: 0;
 }
 .video-btn:hover {
   background: rgba(255, 255, 255, 0.45);
+}
+.video-volume {
+  width: 72px;
+  accent-color: white;
+  cursor: pointer;
 }
 .phone-video {
   position: absolute;

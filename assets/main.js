@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.phone-video').forEach(function (video) {
     var screen = video.closest('.phone-screen');
     var playBtn = screen ? screen.querySelector('.video-play-pause') : null;
-    var volBtn = screen ? screen.querySelector('.video-volume') : null;
-    if (!playBtn || !volBtn) return;
+    var volSlider = screen ? screen.querySelector('.video-volume') : null;
+    if (!playBtn || !volSlider) return;
 
     playBtn.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -34,11 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
       playBtn.setAttribute('aria-label', 'Play video');
     });
 
-    volBtn.addEventListener('click', function (e) {
+    volSlider.value = video.volume;
+    volSlider.addEventListener('click', function (e) {
       e.stopPropagation();
-      video.muted = !video.muted;
-      volBtn.textContent = video.muted ? '\u{1F507}' : '\u{1F50A}';
-      volBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+    });
+    volSlider.addEventListener('input', function (e) {
+      e.stopPropagation();
+      video.muted = false;
+      video.volume = parseFloat(volSlider.value);
     });
 
     // iOS Safari can still open its native fullscreen player on play —
