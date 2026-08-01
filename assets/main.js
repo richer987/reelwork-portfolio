@@ -10,19 +10,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Phone mockup videos — only start on explicit play-button click
+  // Phone mockup videos — custom play/pause + mute controls only
   document.querySelectorAll('.phone-video').forEach(function (video) {
     var screen = video.closest('.phone-screen');
-    var playBtn = screen ? screen.querySelector('.play-dot') : null;
-    if (!playBtn) return;
+    var playBtn = screen ? screen.querySelector('.video-play-pause') : null;
+    var volBtn = screen ? screen.querySelector('.video-volume') : null;
+    if (!playBtn || !volBtn) return;
+
     playBtn.addEventListener('click', function (e) {
       e.stopPropagation();
-      video.controls = true;
-      video.play();
-      playBtn.style.display = 'none';
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
     });
-    // iOS Safari ignores controlsList and can still open its native fullscreen
-    // player — bounce straight back out so playback stays inside the mockup.
+    video.addEventListener('play', function () {
+      playBtn.textContent = '⏸';
+      playBtn.setAttribute('aria-label', 'Pause video');
+    });
+    video.addEventListener('pause', function () {
+      playBtn.textContent = '▶';
+      playBtn.setAttribute('aria-label', 'Play video');
+    });
+
+    volBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      volBtn.textContent = video.muted ? '\u{1F507}' : '\u{1F50A}';
+      volBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+    });
+
+    // iOS Safari can still open its native fullscreen player on play —
+    // bounce straight back out so playback stays inside the mockup.
     video.addEventListener('webkitbeginfullscreen', function () {
       video.webkitExitFullscreen();
     });
