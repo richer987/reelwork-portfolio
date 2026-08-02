@@ -566,11 +566,21 @@ p { margin: 0 0 16px; color: var(--muted); }
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.15s ease;
+}
+.bubble-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .video-bubble:nth-child(2n) .bubble-inner { background: linear-gradient(160deg, var(--taupe-300), var(--taupe-700)); }
 .video-bubble:nth-child(3n) .bubble-inner { background: linear-gradient(160deg, var(--taupe-700), var(--ink-900)); }
 .bubble-play {
+  position: relative;
   width: 30px;
   height: 30px;
   border-radius: 50%;
