@@ -607,6 +607,7 @@ p { margin: 0 0 16px; color: var(--muted); }
   .video-row { grid-template-columns: repeat(2, 1fr); }
 }
 .video-card {
+  aspect-ratio: 9 / 19.5;
   border-radius: 48px;
   background: linear-gradient(125deg, #6a6b6f 0%, #2c2d30 18%, #0a0a0b 45%, #2c2d30 78%, #6a6b6f 100%);
   box-shadow:
@@ -641,8 +642,7 @@ p { margin: 0 0 16px; color: var(--muted); }
 .phone-btn-power { right: -3px; top: 19%; height: 9%; border-radius: 0 2px 2px 0; }
 
 .phone-screen {
-  flex: none;
-  aspect-ratio: 9 / 16;
+  flex: 1;
   border-radius: 38px;
   overflow: hidden;
   position: relative;
@@ -748,8 +748,12 @@ p { margin: 0 0 16px; color: var(--muted); }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: #000;
   z-index: 0;
+}
+.phone-screen:has(.phone-video) {
+  background: #000;
 }
 .video-label {
   position: relative;
