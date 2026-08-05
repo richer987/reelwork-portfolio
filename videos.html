@@ -251,10 +251,13 @@
         <span class="phone-btn phone-btn-vol-up"></span>
         <span class="phone-btn phone-btn-vol-down"></span>
         <span class="phone-btn phone-btn-power"></span>
-        <div class="phone-screen">
+        <div class="phone-screen" style="background-image:url('assets/videos/posters/tech-4.jpg')">
+          <video class="phone-video" src="assets/videos/tech-4.mp4" poster="assets/videos/posters/tech-4.jpg" playsinline preload="metadata" controlsList="nofullscreen noremoteplayback nodownload" disablePictureInPicture></video>
+          <div class="video-controls">
+            <button type="button" class="video-btn video-play-pause" aria-label="Play video">&#9654;</button>
+            <input type="range" class="video-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          </div>
           <div class="phone-notch"><span class="phone-camera"></span></div>
-          <div class="play-dot">&#9654;</div>
-          <span class="video-label">Wearable Tech — Organic</span>
           <div class="phone-home-indicator"></div>
         </div>
       </div>
