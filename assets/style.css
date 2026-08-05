@@ -607,7 +607,6 @@ p { margin: 0 0 16px; color: var(--muted); }
   .video-row { grid-template-columns: repeat(2, 1fr); }
 }
 .video-card {
-  aspect-ratio: 9 / 19.5;
   border-radius: 48px;
   background: linear-gradient(125deg, #6a6b6f 0%, #2c2d30 18%, #0a0a0b 45%, #2c2d30 78%, #6a6b6f 100%);
   box-shadow:
@@ -642,7 +641,8 @@ p { margin: 0 0 16px; color: var(--muted); }
 .phone-btn-power { right: -3px; top: 19%; height: 9%; border-radius: 0 2px 2px 0; }
 
 .phone-screen {
-  flex: 1;
+  flex: none;
+  aspect-ratio: 9 / 16;
   border-radius: 38px;
   overflow: hidden;
   position: relative;
@@ -655,16 +655,6 @@ p { margin: 0 0 16px; color: var(--muted); }
     linear-gradient(160deg, var(--taupe-300), var(--taupe-900));
   background-size: cover;
   background-position: center;
-}
-.phone-screen::before {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  background: inherit;
-  background-size: cover;
-  background-position: center;
-  filter: blur(24px) brightness(0.55);
-  z-index: -1;
 }
 .video-card:nth-child(2n) .phone-screen {
   background:
@@ -760,7 +750,7 @@ p { margin: 0 0 16px; color: var(--muted); }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   z-index: 0;
 }
 .video-label {
