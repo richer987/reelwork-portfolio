@@ -780,6 +780,64 @@ p { margin: 0 0 16px; color: var(--muted); }
   letter-spacing: 0.01em;
 }
 
+/* Brand logo strip ("brands I've worked with") */
+.brand-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 118px;
+  height: 118px;
+  padding: 18px;
+  background: var(--white);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.brand-logo:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+/* wordmarks sit inside the circle's safe inner square */
+.brand-logo img {
+  max-width: 76px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+/* square "reverse" marks keep their own background and fill the circle */
+.brand-logo.is-mark { padding: 0; }
+.brand-logo.is-mark img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 50%;
+}
+@media (max-width: 640px) {
+  .brand-logos { gap: 16px; }
+  .brand-logo {
+    width: 98px;
+    height: 98px;
+    padding: 14px;
+  }
+  .brand-logo img { max-width: 62px; max-height: 34px; }
+}
+
 .band {
   background: var(--ink-900);
   color: white;
